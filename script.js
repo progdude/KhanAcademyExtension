@@ -9,7 +9,8 @@ function searchByKeyword() {
 	var q=  document.getElementById("search").value;
   var results = gapi.client.youtube.search.list({
   	part:"snippet",
-  	maxResults: 1,
+  	maxResults: 3,
+  	q: q,
   	channelId: "UC4a-Gbdw7vOaccHmFo40b9g"
   });
 
@@ -18,17 +19,12 @@ function searchByKeyword() {
   	console.log(r.items.length)
   	for(var i=0; i<r.items.length; i++){
   		console.log(r.items[i].id.videoId);
-  		document.getElementById("video1").style.visibility = "visible";
-  		document.getElementById("video1").style.visibility = "inline";
-  		document.getElementById("video1").src = "https://www.youtube.com/embed/"+r.items[i].id.videoId;
+  		var iframe = document.createElement('iframe');
+  		iframe.src = 'https://www.youtube.com/embed/'+r.items[i].id.videoId;
+   		document.body.appendChild(iframe);
   		
   	}
   })
-
-/*  	document.getElementById("video1").style.visibility = "visible";
-  	document.getElementById("video1").style.visibility = "inline";
-  	document.getElementById("video1").src = "https://www.youtube.com/embed/"+item.id.videoId;*/
-
   
 }
 
