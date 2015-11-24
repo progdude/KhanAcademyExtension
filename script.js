@@ -12,7 +12,6 @@ var thirdId="";
 
 function searchByKeyword() {
 
-
 	var q=  document.getElementById("search").value;
   var results = gapi.client.youtube.search.list({
   	part:"snippet",
@@ -51,13 +50,6 @@ function searchByKeyword() {
  
 }
 
-function deleteFrame(){
-  var iframes = document.getElementsByTagName('iframe');
-  for (var i = 2; i <=4; i++) {
-    console.log(iframes[i].src+"   "+i);
-      iframes[i].parentNode.removeChild(iframes[i]);
-  }
-}
 
 
 
@@ -68,7 +60,6 @@ window.onload = function(){
 var search = document.getElementById("searchButton");
 
  search.addEventListener('click', function() {
-        //deleteFrame();
         searchByKeyword();
  });
 
