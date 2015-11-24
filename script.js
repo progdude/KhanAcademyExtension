@@ -12,6 +12,12 @@ function init(){
 
 function searchByKeyword() {
 
+  var iframes = document.getElementsByTagName('iframe');
+  console.log(iframes.length);
+  for(var x=2; x<iframes.length; x++){
+    iframes[x].parentNode.removeChild(iframes[x]);
+  }
+
 	var q=  document.getElementById("search").value;
   var results = gapi.client.youtube.search.list({
   	part:"snippet",
@@ -22,25 +28,17 @@ function searchByKeyword() {
 
   results.execute(function(response){
   	var r = response.result;
-  	if(count==1){
     	for(var i=0; i<r.items.length; i++){
     		var iframe = document.createElement('iframe');
     		iframe.src = 'https://www.youtube.com/embed/'+r.items[i].id.videoId;
      		document.body.appendChild(iframe);	
     	}
-  }
+  
 
-  else {
-      var iframes = document.getElementsByTagName('iframe');
-      for (var i = 0; i < iframes.length; i++) {
-        console.log(r.items[i].id.videoId);
-          iframes[i].src = 'https://www.youtube.com/embed/'+r.items[i].id.videoId;
-          console.log(iframes[i].src);
-      }
-  }
+
 
   })
-  count++;
+  
 }
 
 
