@@ -1,4 +1,3 @@
-var count=0;
 
 function init(){
 	gapi.client.setApiKey("AIzaSyBaeKarXNWMaibOcIqC-9pn5YZepNNoTG8")
@@ -12,11 +11,6 @@ function init(){
 
 function searchByKeyword() {
 
-  var iframes = document.getElementsByTagName('iframe');
-  console.log(iframes.length);
-  for(var x=2; x<iframes.length; x++){
-    iframes[x].parentNode.removeChild(iframes[x]);
-  }
 
 	var q=  document.getElementById("search").value;
   var results = gapi.client.youtube.search.list({
@@ -33,11 +27,8 @@ function searchByKeyword() {
     		iframe.src = 'https://www.youtube.com/embed/'+r.items[i].id.videoId;
      		document.body.appendChild(iframe);	
     	}
-  
-
-
-
   })
+ 
   
 }
 
