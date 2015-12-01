@@ -1,5 +1,5 @@
 function init(){
-	gapi.client.setApiKey("AIzaSyBaeKarXNWMaibOcIqC-9pn5YZepNNoTG8")
+	gapi.client.setApiKey("AIzaSyBaeKarXNWMaibOcIqC-9pn5YZepNNoTG8") //Had to use YouTube API, Khan Academy API doesn't seem to work when retreiving videos
 	gapi.client.load("youtube", "v3", function(){
 		
 	});
