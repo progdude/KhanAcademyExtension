@@ -1,6 +1,6 @@
 #logo{
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
 }
 
 
@@ -18,8 +18,16 @@ body{
 	width: 560px;
 }
 
+html{
+	height: 630px;
+}
+
 
 #tool{
 	font-family: Helvetica;
 	font-size: 20px;
+}
+
+#searchButton{
+	margin-bottom: 10px;
 }
